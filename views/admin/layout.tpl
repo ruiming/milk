@@ -9,6 +9,17 @@
 </head>
 
 <body>
+  <header>
+      <h1 class="logo">Milk System</h1>
+  </header>
+  <nav>
+    <a href="#">文章</a>
+    <a href="#">标签</a>
+    <a href="#">评论</a>
+    <a href="#">友链</a>
+    <a href="#">关于</a>
+    <a href="#">配置</a>
+  </nav>
   <div class="container">
       {{.LayoutContent}}
   </div>

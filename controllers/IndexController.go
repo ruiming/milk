@@ -13,7 +13,7 @@ type IndexController struct {
 func (c *IndexController) Get() {
 	c.Data["Website"] = "beego.me"
 	c.Data["Email"] = "astaxie@gmail.com"
-	c.Data["Articles"] = models.GetArticleList(1)
+	c.Data["postlist"] = models.GetPostList(1)
 
 	c.Layout = "layout.tpl"
 	c.TplName = "index.tpl"

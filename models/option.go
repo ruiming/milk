@@ -4,8 +4,8 @@ import "github.com/astaxie/beego/orm"
 
 // Option Model
 type Option struct {
-	name  string
-	value string
+	Name  string `orm:"pk"`
+	Value string
 }
 
 // GetOptionList 获取配置列表
