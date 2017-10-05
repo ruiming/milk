@@ -15,8 +15,7 @@ type Post struct {
 	Title     string
 	Content   string `orm:"type(text)"`
 	Thumbnail string
-	View      string
-	Like      string
+	View      string     `orm:"default(0)"`
 	Comments  []*Comment `orm:"reverse(many)"`
 	Tags      []*Tag     `orm:"rel(m2m)"`
 	CreatedAt time.Time  `orm:"auto_now_add;type(datetime)"`
@@ -42,6 +41,12 @@ func GetPostList(page int) utils.Page {
 
 	count, _ := qs.Limit(-1).Count()
 	qs.RelatedSel().OrderBy("-CreatedAt").Limit(perpage).Offset((page - 1) * perpage).All(&list)
+
+	for index, post := range list {
+		o.LoadRelated(&post, "Tags")
+		list[index] = post
+	}
+
 	c, _ := strconv.Atoi(strconv.FormatInt(count, 10))
 	return utils.PageUtil(c, page, perpage, list)
 }
