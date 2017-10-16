@@ -29,6 +29,7 @@
   
   {{.Scripts}}
   <script src="/static/js/reload.min.js"></script>
+  <script src="/static/js/index.js"></script>
 </body>
 </html>
 
