@@ -40,19 +40,23 @@
 </table>
 
 <section class="page">
+<div>
+  <a href="/admin/post/1" class="pre">First</a>
   {{if eq .Articles.PageNo 1}}
     <a href="/admin/post/{{.Articles.PageNo}}" class="pre hidden">Pre</a>
   {{else}}
     <a href="/admin/post/{{.Articles.PageNo | decrease }}" class="pre">Pre</a>
   {{end}}
-
-  <span> {{.Articles.PageNo}} / {{.Articles.TotalPage}} </span>
-
+</div>
+<span> {{.Articles.PageNo}} / {{.Articles.TotalPage}} </span>
+<div>
   {{if eq .Articles.PageNo .Articles.TotalPage}}
     <a href="/admin/post/{{.Articles.PageNo}}" class="next hidden">Next</a>
   {{else}}
     <a href="/admin/post/{{.Articles.PageNo | increase }}" class="next">Next</a>
   {{end}}
+  <a href="/admin/post/{{.Articles.TotalPage}}" class="next">Last</a>
+</div>
 </section>
 
 <footer>

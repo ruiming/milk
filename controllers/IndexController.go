@@ -10,6 +10,7 @@ type IndexController struct {
 	beego.Controller
 }
 
+// @router / [get]
 func (c *IndexController) Get() {
 	c.Data["Website"] = "beego.me"
 	c.Data["Email"] = "astaxie@gmail.com"

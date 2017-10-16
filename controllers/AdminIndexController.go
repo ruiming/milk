@@ -10,6 +10,7 @@ type AdminIndexController struct {
 	beego.Controller
 }
 
+// @router /admin [get]
 func (c *AdminIndexController) Get() {
 	c.Data["Website"] = "beego.me"
 	c.Data["Email"] = "astaxie@gmail.com"
